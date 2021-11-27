@@ -1,0 +1,32 @@
+.BusinessCard {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px 40px;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BusinessCard img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.BusinessCard h1 {
+  font-size: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 12px 0;
+}
+
+.BusinessCard h2 {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 20px 0;
+}
+
+.BusinessCard p {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 12px 0;
+  color: #666;
+}

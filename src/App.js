@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import BusinessCard from './BusinessCard'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    profiles: [
+      {
+        name: 'Steven',
+        title: 'Developer',
+        department: 'Development Team',
+        phone: '+853 66666666',
+        imageUrl: 'https://sdfsdf.dev/300x300.png,black,white',
+        showProfileImage: true,
+      },
+      {
+        name: 'John',
+        title: 'Manager',
+        department: 'Development Team',
+        phone: '+853 66222222',
+        imageUrl: 'https://sdfsdf.dev/300x300.png,yellow,black',
+        showProfileImage: false,
+      }
+    ],
+    currentIndex: 0,
+  }
+
+  changeProfile = (index) => {
+    this.setState({
+      currentIndex: index,
+    })
+  }
+
+  render() {
+    let profile = this.state.profiles[this.state.currentIndex]
+
+    return (
+      <div>
+        <a href="#" onClick={(e) => {
+          e.preventDefault()
+          this.changeProfile(0)
+        }}>Steven</a>{' '}
+        <a href="#" onClick={(e) => {
+          e.preventDefault()
+          this.changeProfile(1)
+        }}>John</a>
+
+        <BusinessCard
+          name={profile.name}
+          title={profile.title}
+          department={profile.department}
+          phone={profile.phone}
+          showProfileImage={profile.showProfileImage}>
+          <img src={profile.imageUrl} />
+        </BusinessCard>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
